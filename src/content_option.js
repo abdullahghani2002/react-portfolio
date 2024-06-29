@@ -8,8 +8,8 @@ const introdata = {
     title: "I’m Abdullah Ghani",
     animated: {
         first: "I love coding",
-        second: "I code cool websites",
-        third: "I like exploring new things",
+        second: "I love learning new tech.",
+        third: "Welcome to my portfolio",
     },
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at nisl euismod urna bibendum",
     your_img_url: "https://images.unsplash.com/photo-1514790193030-c89d266d5a9d",
