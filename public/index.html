@@ -13,8 +13,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 
-    <!-- JSON-LD Markup -->
     <script type="application/ld+json">
+      {
+        "@context":"https://schema.org",
+        "@type":"Product",
+        "productID":"facebook_tshirt_001",
+        "name":"Facebook T-Shirt",
+        "description":"Unisex Facebook T-shirt, Small",
+        "url":"https://example.org/facebook",
+        "image":"https://example.org/facebook.jpg",
+        "brand":"facebook",
+        "offers": [
+          {
+            "@type": "Offer",
+            "price": "7.99",
+            "priceCurrency": "USD",
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock"
+          }
+        ],
+        "additionalProperty": [{
+          "@type": "PropertyValue",
+          "propertyID": "item_group_id",
+          "value": "fb_tshirts"
+        }]
+      }
+      </script>
+    <!-- JSON-LD Markup -->
+    <!-- <script type="application/ld+json">
     [
         {
             "@context": "http://schema.org",
@@ -29,7 +55,7 @@
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at nisl euismod urna bibendum."
         }
     ]
-    </script>
+    </script> -->
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZWLQNM5HZ"></script>
