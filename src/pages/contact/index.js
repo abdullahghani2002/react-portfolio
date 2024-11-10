@@ -6,6 +6,11 @@ import { meta } from "../../content_option";
 import { Container, Row, Col, Alert } from "react-bootstrap";
 import { contactConfig } from "../../content_option";
 
+// Ensure that `fbq` is available globally
+if (typeof window !== "undefined" && window.fbq) {
+  window.fbq('track', 'PageView'); // Ensure the initial 'PageView' event is tracked.
+}
+
 export const ContactUs = () => {
   const [formData, setFormdata] = useState({
     email: "",
@@ -19,7 +24,7 @@ export const ContactUs = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setFormdata({ loading: true });
+    setFormdata({ ...formData, loading: true });
 
     const templateParams = {
       from_name: formData.email,
@@ -39,8 +44,11 @@ export const ContactUs = () => {
         (result) => {
           console.log(result.text);
           setFormdata({
+            email: "",
+            name: "",
+            message: "",
             loading: false,
-            alertmessage: "SUCCESS! ,Thankyou for your messege",
+            alertmessage: "SUCCESS! ,Thank you for your message",
             variant: "success",
             show: true,
           });
@@ -48,20 +56,27 @@ export const ContactUs = () => {
         (error) => {
           console.log(error.text);
           setFormdata({
-            alertmessage: `Faild to send!,${error.text}`,
+            ...formData,
+            loading: false,
+            alertmessage: `Failed to send! ${error.text}`,
             variant: "danger",
             show: true,
           });
-          document.getElementsByClassName("co_alert")[0].scrollIntoView();
         }
       );
   };
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormdata({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
+
+    // Send event to Meta Pixel when user types in the name field
+    if (name === "name" && window.fbq) {
+      window.fbq('trackCustom', 'UserNameInput', { userName: value });
+    }
   };
 
   return (
@@ -81,12 +96,11 @@ export const ContactUs = () => {
         <Row className="sec_sp">
           <Col lg="12">
             <Alert
-              //show={formData.show}
               variant={formData.variant}
               className={`rounded-0 co_alert ${
                 formData.show ? "d-block" : "d-none"
               }`}
-              onClose={() => setFormdata({ show: false })}
+              onClose={() => setFormdata({ ...formData, show: false })}
               dismissible
             >
               <p className="my-0">{formData.alertmessage}</p>
