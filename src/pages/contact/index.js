@@ -78,8 +78,6 @@ export const ContactUs = () => {
       window.fbq('trackCustom', 'UserNameInput', { userName: value,testValue: 'dummy123'})
       window.fbq('track','Subscribe');
       window.fbq('track', 'Purchase', {currency: "USD", value: 30.00});
-    
-
     }
   };
 
