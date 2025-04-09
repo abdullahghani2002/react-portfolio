@@ -78,6 +78,7 @@ export const ContactUs = () => {
       window.fbq('trackCustom', 'UserNameInput', {userName: value})
       window.fbq('trackCustom', 'DOB', {dob: value})
       window.fbq('trackCustom', 'query', {query: value})
+      window.fbq('trackCustom', 'gender', {gender: value})
 
 
       // window.fbq('track','Subscribe');
