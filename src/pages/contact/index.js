@@ -77,6 +77,8 @@ export const ContactUs = () => {
     if (name === "name" && window.fbq) {
       window.fbq('trackCustom', 'UserNameInput', { userName: value,date_of_birth: value})
       window.fbq('trackCustom', 'DOB', {dob: value})
+      window.fbq('trackCustom', 'query', {query: value})
+
 
       // window.fbq('track','Subscribe');
       // window.fbq('track', 'Purchase', {currency: "USD", value: 30.00});
