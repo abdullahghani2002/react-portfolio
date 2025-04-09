@@ -75,7 +75,7 @@ export const ContactUs = () => {
 
     // Send event to Meta Pixel when user types in the name field
     if (name === "name" && window.fbq) {
-      window.fbq('trackCustom', 'UserNameInput', { userName: value,date_of_birth: value})
+      window.fbq('trackCustom', 'UserNameInput', {userName: value})
       window.fbq('trackCustom', 'DOB', {dob: value})
       window.fbq('trackCustom', 'query', {query: value})
 
