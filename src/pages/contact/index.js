@@ -27,7 +27,7 @@ export const ContactUs = () => {
   
     setFormdata({ ...formData, loading: true });
     if(window.fbq) {
-      window.fbq('trackCustom', 'query', {query: formData.message})
+      window.fbq('trackCustom', 'searchquery', {query: formData.message})
     }
 
 
@@ -83,7 +83,9 @@ export const ContactUs = () => {
       // window.fbq('trackCustom', 'UserNameInput', {userName: value})
       // window.fbq('trackCustom', 'DOB', {dob: value})
       window.fbq('trackCustom', 'query', {query: value})
-      // window.fbq('trackCustom', 'gender', {gender: value})
+      window.fbq('trackCustom', 'FIRSTNAME', {firstname: value})
+      window.fbq('trackCustom', 'dateofbirth', {DOB: value})
+
 
 
       // window.fbq('track','Subscribe');
