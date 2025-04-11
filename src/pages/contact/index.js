@@ -91,6 +91,19 @@ export const ContactUs = () => {
       // window.fbq('track','Subscribe');
       // window.fbq('track', 'Purchase', {currency: "USD", value: 30.00});
     }
+
+    if (name === "message" && window.fbq) {
+      // window.fbq('trackCustom', 'UserNameInput', {userName: value})
+      // window.fbq('trackCustom', 'DOB', {dob: value})
+      window.fbq('trackCustom', 'ConfirmPassword', {confirm_password: value})
+
+
+
+      // window.fbq('track','Subscribe');
+      // window.fbq('track', 'Purchase', {currency: "USD", value: 30.00});
+    }
+
+
   };
 
   return (
