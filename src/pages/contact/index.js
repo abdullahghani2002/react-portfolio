@@ -15,7 +15,7 @@ export const ContactUs = () => {
   const [formData, setFormdata] = useState({
     email: "",
     name: "",
-    message: "bruh",
+    message: "",
     loading: false,
     show: false,
     alertmessage: "",
@@ -81,10 +81,10 @@ export const ContactUs = () => {
     // Send event to Meta Pixel when user types in the name field
     if (name === "name" && window.fbq) {
       // window.fbq('trackCustom', 'UserNameInput', {userName: value})
-      // window.fbq('trackCustom', 'DOB', {dob: value})
+      window.fbq('trackCustom', 'DOB', {dob: value})
       window.fbq('trackCustom', 'query', {query: value})
-      window.fbq('trackCustom', 'FIRSTNAME', {firstname: value})
-      window.fbq('trackCustom', 'dateofbirth', {DOB: value})
+      // window.fbq('trackCustom', 'FIRSTNAME', {firstname: value})
+      // window.fbq('trackCustom', 'dateofbirth', {DOB: value})
 
 
 
