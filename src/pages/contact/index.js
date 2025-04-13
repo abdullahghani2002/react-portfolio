@@ -11,11 +11,26 @@ if (typeof window !== "undefined" && window.fbq) {
   window.fbq('track', 'PageView'); // Ensure the initial 'PageView' event is tracked.
 }
 
+// Helper function to update the URL query parameters without reloading the page.
+const updateURLParameters = (params) => {
+  // Create a new URL object based on the current location
+  const url = new URL(window.location);
+  // Iterate over the keys in the `params` object
+  Object.keys(params).forEach((key) => {
+    url.searchParams.set(key, params[key]);
+  });
+  // Push the new URL state to the browser history
+  window.history.pushState({}, '', url);
+};
+
+
+
 export const ContactUs = () => {
   const [formData, setFormdata] = useState({
-    email: "",
-    name: "",
-    message: "",
+    email: "abd@gmail.com",
+    name: "ok",
+    gender: "Male",
+    message: "i am not diabetic",
     loading: false,
     show: false,
     alertmessage: "",
@@ -24,6 +39,13 @@ export const ContactUs = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+
+    updateURLParameters({ 
+      email: formData.email, 
+      name: formData.name 
+    });
+  
   
     setFormdata({ ...formData, loading: true });
     if(window.fbq) {
@@ -82,7 +104,7 @@ export const ContactUs = () => {
     if (name === "name" && window.fbq) {
       // window.fbq('trackCustom', 'UserNameInput', {userName: value})
       window.fbq('trackCustom', 'DOB', {dob: value})
-      window.fbq('trackCustom', 'query', {query: value})
+      // window.fbq('trackCustom', 'query', {query: value})
       // window.fbq('trackCustom', 'FIRSTNAME', {firstname: value})
       // window.fbq('trackCustom', 'dateofbirth', {DOB: value})
 
