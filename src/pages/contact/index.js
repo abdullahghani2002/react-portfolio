@@ -43,7 +43,10 @@ export const ContactUs = () => {
 
     updateURLParameters({ 
       email: formData.email, 
-      name: formData.name 
+      name: formData.name,
+      gender: formData.gender,
+      query: formData.message,
+
     });
   
   
