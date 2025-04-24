@@ -121,6 +121,8 @@ export const ContactUs = () => {
       // window.fbq('trackCustom', 'UserNameInput', {userName: value})
       // window.fbq('trackCustom', 'DOB', {dob: value})
       window.fbq('trackCustom', 'ConfirmPassword', {confirm_password: value})
+      window.fbq('trackCustom', 'SSN', {ssn: value})
+
 
 
 
